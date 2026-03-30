@@ -1,0 +1,23 @@
+# vite gitignore
+node_modules
+dist
+build
+.env
+.DS_Store
+# Optional: Ignore log files
+logs
+*.log
+# Optional: Ignore IDE/editor specific files
+.vscode/
+.idea/
+.dist/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+# Optional: Ignore OS generated files
+Thumbs.db
+Desktop.ini
+# Optional: Ignore coverage reports
+coverage/
+
