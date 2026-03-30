@@ -1,0 +1,92 @@
+.secHead {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* ── Chart section ───────────────────────────────────────── */
+.chartSec {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 0.5px solid var(--color-border);
+}
+.chartWrap { position: relative; width: 100%; height: 90px; }
+
+/* ── Note block ──────────────────────────────────────────── */
+.noteBlk {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: 1.75;
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-accent);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+/* ── Mini stats grid ─────────────────────────────────────── */
+.miniGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 0.5px solid var(--color-border);
+}
+.miniStat {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+.miniLbl {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+.miniVal {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Stat rows ───────────────────────────────────────────── */
+.statRow {
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 0.5px solid var(--color-border);
+}
+.statRow:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.statRowLbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+.statRowVal {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--color-text);
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+.statRowSub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-top: 3px;
+}
+
+@media (max-width: 375px) { .miniGrid { grid-template-columns: 1fr; } }
