@@ -1,13 +1,17 @@
-import Header    from '../Header/Header';
-import Controls  from '../Controls/Controls';
-import LeftPanel  from '../LeftPanel/LeftPanel';
-import RightPanel from '../RightPanel/RightPanel';
-import { useFindRecord, useAppStore, useTotalHours } from '../../store/appContext';
-import styles from './AppScreen.module.css';
+import Header from "../Header/Header";
+import Controls from "../Controls/Controls";
+import LeftPanel from "../LeftPanel/LeftPanel";
+import RightPanel from "../RightPanel/RightPanel";
+import {
+  useFindRecord,
+  useAppStore,
+  useTotalHours,
+} from "../../store/appContext";
+import styles from "./AppScreen.module.css";
 
 export default function AppScreen() {
   const { state } = useAppStore();
-  const record     = useFindRecord();
+  const record = useFindRecord();
   const totalHours = useTotalHours();
 
   return (
@@ -19,7 +23,13 @@ export default function AppScreen() {
           {record && <LeftPanel record={record} gran={state.gran} />}
         </main>
         <aside className={styles.right} aria-live="polite" aria-atomic="true">
-          {record && <RightPanel record={record} gran={state.gran} totalHours={totalHours} />}
+          {record && (
+            <RightPanel
+              record={record}
+              gran={state.gran}
+              totalHours={totalHours}
+            />
+          )}
         </aside>
       </div>
     </div>

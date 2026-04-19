@@ -1,5 +1,5 @@
-import type { TrackRecord } from '../../types';
-import styles from './LeftPanel.module.css';
+import type { TrackRecord } from "../../types";
+import styles from "./LeftPanel.module.css";
 
 export default function TrackGrid({ tracks }: { tracks: TrackRecord[] }) {
   if (!tracks.length) {
@@ -14,7 +14,9 @@ export default function TrackGrid({ tracks }: { tracks: TrackRecord[] }) {
           role="listitem"
           aria-label={`#${i + 1}: ${t.name} by ${t.artist}, ${t.plays} plays`}
         >
-          <div className={styles.trackRankBg} aria-hidden="true">{i + 1}</div>
+          <div className={styles.trackRankBg} aria-hidden="true">
+            {i + 1}
+          </div>
           <div className={styles.trackName}>{t.name}</div>
           <div className={styles.trackArtist}>{t.artist}</div>
           <div className={styles.trackPlays}>{t.plays} plays</div>

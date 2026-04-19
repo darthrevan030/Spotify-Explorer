@@ -1,5 +1,5 @@
-import type { ArtistRecord } from '../../types';
-import styles from './LeftPanel.module.css';
+import type { ArtistRecord } from "../../types";
+import styles from "./LeftPanel.module.css";
 
 export default function ArtistList({ artists }: { artists: ArtistRecord[] }) {
   if (!artists.length) {
@@ -10,7 +10,7 @@ export default function ArtistList({ artists }: { artists: ArtistRecord[] }) {
       {artists.map((a, i) => (
         <div key={a.name} className={styles.artistRow} role="listitem">
           <span className={styles.artistRank} aria-hidden="true">
-            {String(i + 1).padStart(2, '0')}
+            {String(i + 1).padStart(2, "0")}
           </span>
           <div>
             <div className={styles.artistName}>{a.name}</div>
@@ -22,12 +22,17 @@ export default function ArtistList({ artists }: { artists: ArtistRecord[] }) {
               aria-valuemax={100}
               aria-label={`${a.name}: ${a.hours}h, ${a.plays.toLocaleString()} plays`}
             >
-              <div className={styles.artistBarFill} style={{ width: `${a.pct}%` }} />
+              <div
+                className={styles.artistBarFill}
+                style={{ width: `${a.pct}%` }}
+              />
             </div>
           </div>
           <div className={styles.artistStats}>
             <div className={styles.artistHours}>{a.hours}h</div>
-            <div className={styles.artistPlays}>{a.plays.toLocaleString()} plays</div>
+            <div className={styles.artistPlays}>
+              {a.plays.toLocaleString()} plays
+            </div>
           </div>
         </div>
       ))}

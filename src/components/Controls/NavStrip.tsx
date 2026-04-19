@@ -1,10 +1,10 @@
-import { useRef, useEffect } from 'react';
-import type { NavItem } from '../../types';
-import styles from './Controls.module.css';
+import { useRef, useEffect } from "react";
+import type { NavItem } from "../../types";
+import styles from "./Controls.module.css";
 
 interface Props {
-  items:    NavItem[];
-  selKey:   string | null;
+  items: NavItem[];
+  selKey: string | null;
   onSelect: (item: NavItem) => void;
 }
 
@@ -15,10 +15,12 @@ export default function NavStrip({ items, selKey, onSelect }: Props) {
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip || !selKey) return;
-    const btn = strip.querySelector<HTMLElement>(`[data-key="${CSS.escape(selKey)}"]`);
+    const btn = strip.querySelector<HTMLElement>(
+      `[data-key="${CSS.escape(selKey)}"]`,
+    );
     if (!btn) return;
     const target = btn.offsetLeft - strip.offsetWidth / 2 + btn.offsetWidth / 2;
-    strip.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    strip.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
   }, [selKey, items]);
 
   return (
@@ -28,11 +30,11 @@ export default function NavStrip({ items, selKey, onSelect }: Props) {
       role="tablist"
       aria-label="Time periods"
     >
-      {items.map(item => (
+      {items.map((item) => (
         <button
           key={item.key}
           data-key={item.key}
-          className={`${styles.periodBtn}${item.key === selKey ? ' ' + styles.periodBtnActive : ''}`}
+          className={`${styles.periodBtn}${item.key === selKey ? " " + styles.periodBtnActive : ""}`}
           role="tab"
           aria-selected={item.key === selKey}
           title={item.longLabel ?? item.label}

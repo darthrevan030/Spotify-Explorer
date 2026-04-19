@@ -1,9 +1,9 @@
-import styles from './RightPanel.module.css';
+import styles from "./RightPanel.module.css";
 
 interface Props {
   label: string;
   value: string;
-  sub?:  string;
+  sub?: string;
 }
 
 export default function StatRow({ label, value, sub }: Props) {

@@ -1,26 +1,29 @@
-import type { AnyRecord, Granularity } from '../../types';
-import { useCurrentNavItems } from '../../store/appContext';
-import OverviewChart from './OverviewChart';
-import MiniStats     from './MiniStats';
-import StatRow       from './StatRow';
-import styles from './RightPanel.module.css';
+import type { AnyRecord, Granularity } from "../../types";
+import { useCurrentNavItems } from "../../store/appContext";
+import OverviewChart from "./OverviewChart";
+import MiniStats from "./MiniStats";
+import StatRow from "./StatRow";
+import styles from "./RightPanel.module.css";
 
 interface Props {
-  record:     AnyRecord;
-  gran:       Granularity;
+  record: AnyRecord;
+  gran: Granularity;
   totalHours: number;
 }
 
 export default function RightPanel({ record, gran, totalHours }: Props) {
   const navItems = useCurrentNavItems();
 
-  const pct = gran === 'year' && totalHours
-    ? `${((record.hours / totalHours) * 100).toFixed(1)}% of lifetime`
-    : '';
+  const pct =
+    gran === "year" && totalHours
+      ? `${((record.hours / totalHours) * 100).toFixed(1)}% of lifetime`
+      : "";
 
-  const avg  = record.plays ? Math.round(record.hours * 60 / record.plays) : 0;
-  const note = 'note' in record ? (record as { note?: string }).note ?? '' : '';
-  const tracks = 'tracks' in record ? (record as { tracks: number }).tracks : null;
+  const avg = record.plays ? Math.round((record.hours * 60) / record.plays) : 0;
+  const note =
+    "note" in record ? ((record as { note?: string }).note ?? "") : "";
+  const tracks =
+    "tracks" in record ? (record as { tracks: number }).tracks : null;
 
   return (
     <>
@@ -38,7 +41,11 @@ export default function RightPanel({ record, gran, totalHours }: Props) {
         artists={record.artists}
       />
 
-      <StatRow label="Hours" value={`${record.hours}h`} sub={pct || undefined} />
+      <StatRow
+        label="Hours"
+        value={`${record.hours}h`}
+        sub={pct || undefined}
+      />
       <StatRow
         label="Plays"
         value={record.plays.toLocaleString()}

@@ -1,10 +1,10 @@
-import styles from './RightPanel.module.css';
+import styles from "./RightPanel.module.css";
 
 interface Props {
-  shuffle:  number;
-  skip:     number;
-  peak:     string;
-  artists:  number;
+  shuffle: number;
+  skip: number;
+  peak: string;
+  artists: number;
 }
 
 export default function MiniStats({ shuffle, skip, peak, artists }: Props) {
@@ -20,7 +20,7 @@ export default function MiniStats({ shuffle, skip, peak, artists }: Props) {
       </div>
       <div className={styles.miniStat}>
         <div className={styles.miniLbl}>Peak hour</div>
-        <div className={styles.miniVal}>{peak || '—'}</div>
+        <div className={styles.miniVal}>{peak || "—"}</div>
       </div>
       <div className={styles.miniStat}>
         <div className={styles.miniLbl}>Artists</div>
